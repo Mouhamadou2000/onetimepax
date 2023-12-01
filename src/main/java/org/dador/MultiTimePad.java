@@ -64,9 +64,13 @@ public class MultiTimePad {
         while (i < nbMsg) {
             // TODO : modifier la ligne suivante
             tmpByteMsg = HexConverters.toByteArrayFromHex(messages[i]);
+            byte [] currentMsgBytes=HexConverters.toByteArrayFromHex(messages[i]);
+            byte [] firsttMsgBytes=HexConverters.toByteArrayFromHex(msg0);
+            tmpByteMsg=HexConverters.xorArray(currentMsgBytes, firsttMsgBytes);
             System.out.print(i);
             System.out.print(": ");
             System.out.println( HexConverters.toPrintableHexFromByteArray(tmpByteMsg));
+            System.out.println(HexConverters.toPrintableHexFromByteArray(tmpByteMsg));
             i++;
         }
 
@@ -80,6 +84,7 @@ public class MultiTimePad {
             System.out.print(i);
             System.out.print(": ");
             System.out.println(HexConverters.toPrintableHexFromByteArray(tmpByteMsg));
+           
             i++;
         }
     }
